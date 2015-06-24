@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_time, only:, [:edit, :show, :update, :destroy]
+  before_action :find_item, only: [:edit, :show, :update, :destroy]
 
   def index
     @items = Item.all
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @item = item.new(item_params)
     if @item.save
       flash[:notice] = "#{@item.name} created!"
-      redirect_to (action: :index)
+      redirect_to items_path
     else
       flash[:error] = "#{@ite.name} failed to be created."
       render :new
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
   def find_item
     @item = Item.find_by(id: params[:id])
     unless @video
-      render(text: "video with id #{params[:id]} not found", status: :404)
+      render(text: "video with id #{params[:id]} not found", status: '404')
     end
   end
 end
