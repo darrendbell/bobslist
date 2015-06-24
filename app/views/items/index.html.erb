@@ -1,23 +1,28 @@
 <div class="container">
   <div class="row">
-    
     <h1 class="page-header text-center">Items</h1>
-    <hr />
 
-    <table class="table table-hover">
+    <table class="table table-hover table-bordered">
       <tr> 
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
         <th>Category</th>
+        <th>Edit</th>
+        <th>View</th>
+        <th>Delete</th>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <% @items.each do |item| %>
+       <tr>
+          <td> <%= item.name %> </td>
+          <td> <%= item.description %> </td>
+          <td> $<%= item.price %> </td>
+          <td> <%= item.category_id %> </td>
+          <td><%= link_to('Edit this item', edit_item_path(item.id)) %></td>
+          <td><%= link_to('View this item', item_path(item.id)) %></td>
+          <td><%= link_to('delete this item', item_path(item.id), method: :delete) %></td>
+        </tr>
+      <% end %>
     </table>
        
   </div>

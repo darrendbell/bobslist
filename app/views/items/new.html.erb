@@ -1,6 +1,16 @@
 <div class="container">
   <div class="row">
     <h1 class="page-header text-center">Create New Items</h1>
+
     <p>form goes here</p>
+  
+    <%= form_for(@item) do |item| %>
+      <p>Name: <%= item.text_field :name %></p>
+      <p>Description: <%= item.text_field :description %></p>
+      <p>Price: <%= item.text_field :price %></p>
+      <p>Category: <%= item.text_field :category_id %></p>
+      <p><%= item.submit('save item') %></p>
+    <% end %>
+
   </div>
 </div>
