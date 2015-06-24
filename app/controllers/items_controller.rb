@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_time, only:, [:edit, :show, :update, :destroy]
+
   def index
     @items = Item.all
   end
@@ -9,6 +10,14 @@ class ItemsController < ApplicationController
   end
 
   def create 
+    @item = item.new(item_params)
+    if @item.save
+      flash[:notice] = "#{@item.name} created!"
+      redirect_to (action: :index)
+    else
+      flash[:error] = "#{@ite.name} failed to be created."
+      render :new
+    end
   end
 
   def edit
