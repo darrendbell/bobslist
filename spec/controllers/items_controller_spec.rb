@@ -22,12 +22,18 @@ RSpec.describe ItemsController, type: :controller do
       get :new
       expect(response).to have_http_status(:success)
     end
+
   end
 
   describe "GET #show" do
     it "returns http success" do
       get :show, id: item.id
       expect(response).to have_http_status(:success)
+    end
+
+    it "fails to return a success" do
+      get :show, id: '3124354'
+      expect(response).to_not have_http_status(:success)
     end
   end
 
