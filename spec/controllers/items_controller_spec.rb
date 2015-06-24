@@ -42,6 +42,11 @@ RSpec.describe ItemsController, type: :controller do
       put :update, id: item.id, item: {name: 'thing', description: 'about the thing', price: 'money', category: '2'}
       expect(response).to have_http_status(:redirect)
     end
+
+    it 'fails to update item' do
+      put :update, id: item.id, item: {name: nil, description: 'about the thing'}
+      expect(flash[:error]).to be_present
+    end
   end
 
   describe "DELETE #destroy" do
