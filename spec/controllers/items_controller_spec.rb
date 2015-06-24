@@ -41,14 +41,7 @@ RSpec.describe ItemsController, type: :controller do
   describe "DELETE #destroy" do
     it "successfully deletes item" do
       delete :destroy, id: item.id 
-      expect(response).to have_http_status(:success)
-    end
-
-    it "fails to delete item" do
-      delete :destroy, id: item.id
-      expect(response).to have_http_status
+      expect(flash[:notice]).to be_present
     end
   end
-
-
 end

@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
       redirect_to(action: :index)
     else
       flash[:error] = "#{@item.name} failed to be deleted."
-      render :new
+      render(text: 'item not deleted', status: 400)
     end
   end
 
