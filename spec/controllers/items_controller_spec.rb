@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
+  let(:item) {Item.create!(name: 'item name', description: 'item description', price: 'item price', category_id: 'category integer')}
 
   describe "GET #index" do
     it "returns http success" do
@@ -11,22 +12,29 @@ RSpec.describe ItemsController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit
+      get :edit, id: item.id
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #update" do
     it "returns http success" do
-      get :update
+      get :update, id: item.id
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      get :show, id: item.id
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "PUT #update" do
+    it "returns http success" do
+      put :update, id: item.id, item: {name: 'thing', description: 'about the thing', price: 'money', category: '2'}
+      expect(response).to have_http_status(:redirect)
     end
   end
 
