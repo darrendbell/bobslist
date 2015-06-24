@@ -17,9 +17,9 @@ RSpec.describe ItemsController, type: :controller do
     end
   end
 
-  describe "GET #update" do
+  describe "GET #new" do
     it "returns http success" do
-      get :update, id: item.id
+      get :new
       expect(response).to have_http_status(:success)
     end
   end
@@ -37,5 +37,18 @@ RSpec.describe ItemsController, type: :controller do
       expect(response).to have_http_status(:redirect)
     end
   end
+
+  describe "DELETE #destroy" do
+    it "successfully deletes item" do
+      delete :destroy, id: item.id 
+      expect(response).to have_http_status(:success)
+    end
+
+    it "fails to delete item" do
+      delete :destroy, id: item.id
+      expect(response).to have_http_status
+    end
+  end
+
 
 end

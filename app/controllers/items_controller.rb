@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       flash[:notice] = "#{@item.name} updated successfully."
-      reject_to(action: :index)
+      redirect_to(action: :index)
     else
       flash[:error] = "#{@item.name} failed to update."
       render :edit
@@ -56,8 +56,8 @@ class ItemsController < ApplicationController
 
   def find_item
     @item = Item.find_by(id: params[:id])
-    unless @video
-      render(text: "video with id #{params[:id]} not found", status: '404')
+    unless @item
+      render(text: "item with id #{params[:id]} not found", status: '404')
     end
   end
 end

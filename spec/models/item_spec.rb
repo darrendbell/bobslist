@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-   before(:each) do
-    @item_1 = Item.create(name: 'studio')
-    @item_2 = Item.create(name: 'house')
-    @item_3 = Item.create(name: 'office')
-  end
+  let(:item_1) {Item.create(name: 'studio')}
+  let(:item_2) {Item.create(name: 'house')}
+  let(:item_3) {Item.create(name: 'office')}
   
-  describe "categories" do
-    it 'order categories by name' do
-      expect(Item.all.by_name.first).to eq(@item_2)
+  describe "items" do
+    it 'order items by name' do
+      item_1
+      item_2
+      item_3
+      expect(Item.all.by_name.first).to eq(item_2)
     end
   end
 end
