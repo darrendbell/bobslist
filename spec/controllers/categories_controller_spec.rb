@@ -70,9 +70,5 @@ let(:category) {Category.create(name: 'Name')}
      expect(Category.all.count).to eq(0)
      expect(flash[:notice]).to be_present
     end
-
-
  end
-
-
 end
