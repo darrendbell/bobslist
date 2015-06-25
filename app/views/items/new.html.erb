@@ -1,15 +1,24 @@
 <div class="container">
   <div class="row">
-    <h1 class="page-header text-center">Create New Items</h1>
-  
-    <%= form_for(@item, html: {multipart: true}) do |item| %>
-      <p>Name: <%= item.text_field :name %></p>
-      <p>Description: <%= item.text_field :description %></p>
-      <p>Price: <%= item.text_field :price %></p>
-      <p>Category: <%= item.text_field :category_id %></p>
-      <p>Upload an Image: <%= item.file_field :image %></p>
-      <p><%= item.submit('save item') %></p>
-    <% end %>
+    <h1 class="page-header text-center">Create New Item</h1>
+      <%= form_for(@item, html: {multipart: true}) do |item| %>
+        <div class="form-group">
+          <p>Name: <%= item.text_field :name, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <p>Description: <%= item.text_area :description, class: 'form-control'%></p>
+        </div>
+        <div class="form-group">
+          <p>Price: <%= item.text_field :price, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <p>Category: <%= item.text_field :category_id, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <p>Upload an Image: <%= item.file_field :image %></p>
+        </div>
+        <div>
+          <p><%= item.submit('save item', class: 'btn btn-default')%></p>
+        </div>
+      <% end %>
 
-  </div>
-</div>

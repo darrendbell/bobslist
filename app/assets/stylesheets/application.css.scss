@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +16,25 @@
  *= require_tree .
  *= require_self
  */
+
+h3 {
+  font-family: 'Playball', cursive;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+
+
+.jumbotron-color {
+  background-color: #A8CFE8;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #F1DCFF;
+}

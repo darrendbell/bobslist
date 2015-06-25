@@ -5,8 +5,39 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Abril+Fatface|Playball' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
+<div class="jumbotron jumbotron-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <p>
+          <button class="btn btn-default">
+            <%= link_to('categories', categories_path) %>  
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-default">
+            <%= link_to('item home', items_path) %>  
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-default">
+            <%= link_to('create item', new_item_path) %>
+          </button>
+        </p>
+      </div>
+      <div class="col-md-10">
+        <h1>bobslist</h1>
+        <h3>welcome!</h3>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 <%= yield %>
 

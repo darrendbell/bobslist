@@ -2,5 +2,6 @@
   <div class="row">
     <h1 class="page-header text-center">Show Item</h1>
     <p><%= @item.name %></p>
+    <p><%= image_tag @item.image.url(:medium) %></p>
   </div>
 </div>
