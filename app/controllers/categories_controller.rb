@@ -6,7 +6,18 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @categories = Category.new
+    @category = Category.new
+  end
+
+  def create 
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:notice] = "#{@category.name} created!"
+      redirect_to categories_path
+    else
+      flash[:error] = "#{@ite.name} failed to be created."
+      render :new
+    end
   end
 
    def update
@@ -19,6 +30,7 @@ class CategoriesController < ApplicationController
  end
 
  def show
+    @items = Item.where(category_id: @category.id)
  end
 
  def destroy
@@ -27,7 +39,7 @@ class CategoriesController < ApplicationController
    else
      flash[:error] = "category was not destroyed"
    end
-   redirect_to(category_path)
+   redirect_to(categories_path)
  end
 
  private

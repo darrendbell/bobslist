@@ -18,7 +18,19 @@
           <p>Upload an Image: <%= item.file_field :image %></p>
         </div>
         <div>
+        <select name="item[category_id]">
+          <option value="">Select Category</option>
+          <option value=1>For Sale</option>
+          <option value=2>Housing</option>
+          <option value=3>Personals</option>
+          <option value=4>Jobs</option>
+          <option value=5>Services</option>
+        </select>
+        </div>
+        <div>
           <p><%= item.submit('save item', class: 'btn btn-default')%></p>
         </div>
       <% end %>
+  </div>
+</div>
 

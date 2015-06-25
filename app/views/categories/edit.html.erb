@@ -1,2 +1,14 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1 class="page-header text-center">Edit Categories</h1>
+
+  
+  
+    <%= form_for(@category) do |category| %>
+      <p>Name: <%= category.text_field :name %></p>
+
+      <p><%= category.submit('save category') %></p>
+    <% end %>
+
+  </div>
+</div>
