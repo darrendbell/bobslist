@@ -1,2 +1,11 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1 class="page-header text-center"><%= @category.name %></h1>
+    <% @items.each do |item|%>
+      <%= image_tag item.image.url(:thumb) %>
+      <%= item.name %>
+      <%= item.description %>
+      <%= item.price %>
+    <% end %>
+  </div>
+</div>

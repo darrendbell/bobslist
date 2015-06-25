@@ -1,2 +1,11 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1 class="page-header text-center">Create New Category</h1>
+  
+    <%= form_for(@category, html: {multipart: true}) do |category| %>
+      <p>Name: <%= category.text_field :name %></p>
+      <p><%= category.submit('save category') %></p>
+    <% end %>
+
+  </div>
+</div>

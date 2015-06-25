@@ -6,10 +6,19 @@
       <p>Name: <%= item.text_field :name %></p>
       <p>Description: <%= item.text_field :description %></p>
       <p>Price: <%= item.text_field :price %></p>
-      <p>Category: <%= item.text_field :category_id %></p>
+      <select name="item[category_id]">
+        <option value="">Select Category</option>
+        <option value=1>For Sale</option>
+        <option value=2>Housing</option>
+        <option value=3>Personals</option>
+        <option value=4>Jobs</option>
+        <option value=5>Services</option>
+      </select>
       <p>Upload an Image: <%= item.file_field :image %></p>
       <p><%= item.submit('save item') %></p>
     <% end %>
 
   </div>
 </div>
+
+<!-- collection_select(:user, :role_id, @roles, :id, :role_title, {:prompt => true}) -->
