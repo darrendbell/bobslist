@@ -2,8 +2,11 @@
   <div class="row">
     <h1 class="page-header text-center">Items</h1>
 
+    <%= link_to('create new item', new_item_path) %>
+
     <table class="table table-hover table-bordered">
       <tr> 
+        <th>Image</th>
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
@@ -14,6 +17,7 @@
       </tr>
       <% @items.each do |item| %>
        <tr>
+          <td> <%= image_tag.image.url %> </td>
           <td> <%= item.name %> </td>
           <td> <%= item.description %> </td>
           <td> $<%= item.price %> </td>

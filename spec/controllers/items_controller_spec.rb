@@ -46,6 +46,7 @@ RSpec.describe ItemsController, type: :controller do
     it 'fails to update item' do
       put :update, id: item.id, item: {name: nil, description: 'about the thing'}
       expect(flash[:error]).to be_present
+      expect(response).to render_template(:edit)
     end
   end
 

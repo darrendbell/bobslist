@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 #bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.5'
-#paperclip gem
+#paperclip gem for uploading images
 gem 'paperclip', '~> 4.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -51,6 +51,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~>3.0'
+  gem 'shoulda-matchers'
 
 end
 
