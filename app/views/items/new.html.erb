@@ -12,12 +12,9 @@
           <p>Price: <%= item.text_field :price, class: 'form-control' %></p>
         </div>
         <div class="form-group">
-          <p>Category: <%= item.text_field :category_id, class: 'form-control' %></p>
-        </div>
-        <div class="form-group">
           <p>Upload an Image: <%= item.file_field :image %></p>
         </div>
-        <div>
+        <div class="form-group">
         <select name="item[category_id]">
           <option value="">Select Category</option>
           <option value=1>For Sale</option>
